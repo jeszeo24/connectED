@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
+import StudentView from "./components/StudentView";
+import TeacherView from "./components/TeacherView";
 import './App.css';
 
+
 function App() {
+  const [isStudent, setIsStudent] = useState (true);
+
+  const handleChangeView = (isStudent) => {
+    setIsStudent(isStudent);
+  };
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav>
+      <button className={isStudent? "student": null} onClick={(e) => handleChangeView(true)}>STUDENT</button>
+      <button className={!isStudent? "teacher": null} onClick={(e) => handleChangeView(false)}>TEACHER</button>
+    </nav>
+    {
+      isStudent?
+    <StudentView/>
+    :<TeacherView/>
+    }
+    
     </div>
   );
 }
