@@ -2,7 +2,9 @@ import React from 'react'
 
 function HomeView() {
   return (
-    <div>Home</div>
+    <div>
+      <h2>Homepage</h2>
+    </div>
   )
 }
 

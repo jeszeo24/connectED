@@ -7,21 +7,30 @@ import HomeView from '../StudentView/Views/HomeView'
 import NotesView from '../StudentView/Views/NotesView'
 import ReflectionView from '../StudentView/Views/ReflectionView'
 import ResourcesView from '../StudentView/Views/ResourcesView'
+import WeatherView from '../StudentView/Views/Weather/WeatherView'
+import NewsView from '../StudentView/Views/News/NewsView'
 
 function StudentView() {
   return (
     <div className='StudentView'>
-      <h2>Homepage</h2>
-{/* 
+
       <Navbar />
 
       <Routes>
         <Route path="/" element={<HomeView />} />
         <Route path= "notes" element={<NotesView/>} />
-        <Route path="reflections" element={<ReflectionView />} />
+        <Route path="reflection" element={<ReflectionView />} />
         <Route path="resources" element={<ResourcesView/>} />
 
-      </Routes> */} 
+      </Routes> 
+
+      <div>
+        <WeatherView/>
+      </div>
+
+      <div>
+        <NewsView/>
+      </div>
 
 
     </div>
