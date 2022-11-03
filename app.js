@@ -6,9 +6,13 @@ const cors = require ('cors');
 
 var indexRouter = require('./routes/index');
 var reflectionRouter = require('./routes/reflection');
-var noteRouter = require('./routes/note')
+var noteRouter = require('./routes/note');
 // Added chatRouter
-var chatRouter = require('./routes/chat')
+var chatRouter = require('./routes/chat');
+// Added usersRouter
+var usersRouter = require('./routes/users');
+// Added authRouter
+var authRouter = require('./routes/auth');
 
 
 var app = express();
@@ -24,7 +28,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/reflection', reflectionRouter);
 app.use('/note', noteRouter)
-// need to use chatRouter
+// use chatRouter
 app.use('/chat', chatRouter)
+// use usersRouter
+app.use('/', usersRouter); 
+// use authRouter
+app.use('/', authRouter); 
 
 module.exports = app;

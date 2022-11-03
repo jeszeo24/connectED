@@ -1,3 +1,5 @@
+// Source: Jim's Web Sockets demo
+
 import React, { useEffect, useRef } from "react";
 import "./ChatList.css";
 

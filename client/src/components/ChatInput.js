@@ -1,3 +1,5 @@
+// Source: Jim's Web Sockets demo
+
 import React, { useState } from "react";
 
 function ChatInput(props) {
