@@ -1,1 +1,65 @@
+.user, button{
+    background: none;
+    border: none;
+    margin-top: 5px;
+    cursor: pointer;
+    color: white ;
+    height: 30px;
+    
+}
+.user{
+    display: flex;
+    justify-content: space-between;
+}
 
+.user button.active{
+    color: #ffffff;
+    background: #f9e84a; 
+    width: 500px;
+    text-align: left;
+    letter-spacing: 5px;
+    font-weight: bolder;
+  }
+
+  .user button:hover {
+    box-shadow: inset 500px 0 0 0 #f9e84a;
+    width: 500px;
+    transition: ease-out 0.4s;
+  }
+
+body {
+    /* background-color: #987284;
+    opacity: 0.9;
+    background: linear-gradient(135deg, #b6999c55 25%, transparent 25%) -37px 0/ 74px 74px, linear-gradient(225deg, #b6999c 25%, transparent 25%) -37px 0/ 74px 74px, linear-gradient(315deg, #b6999c55 25%, transparent 25%) 0px 0/ 74px 74px, linear-gradient(45deg, #b6999c 25%, #987284 25%) 0px 0/ 74px 74px;   */
+    /* background-color: #00CECB;
+opacity: 0.5;
+background: linear-gradient(135deg, #98eedf55 25%, transparent 25%) -38px 0/ 76px 76px, linear-gradient(225deg, #98eedf 25%, transparent 25%) -38px 0/ 76px 76px, linear-gradient(315deg, #98eedf55 25%, transparent 25%) 0px 0/ 76px 76px, linear-gradient(45deg, #98eedf 25%, #00CECB 25%) 0px 0/ 76px 76px; */
+/* background-color: #00CECB;
+opacity: 10; */
+    background: linear-gradient(135deg, #98eedf55 25%, transparent 25%) -38px 0/ 76px 76px, linear-gradient(225deg, #98eee0de 25%, transparent 25%) -38px 0/ 76px 76px, linear-gradient(315deg, #98eedf55 25%, transparent 25%) 0px 0/ 76px 76px, linear-gradient(45deg, #98eedf 25%, #00cecbbe 25%) 0px 0/ 76px 76px;
+    font-family: "Baloo 2", cursive;
+  }
+  
+  .main{
+        width: 70rem;
+        height: 70rem;
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 10); 
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.39);
+        backdrop-filter: blur(5px);
+        text-align: center;
+        margin: auto;
+        margin-top: 20px;
+        
+
+  }
+
+  h1{
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+  
+  }
+ 
+
+    

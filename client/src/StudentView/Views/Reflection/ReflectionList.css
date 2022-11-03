@@ -1,0 +1,55 @@
+.ref-lay{
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.ref-list{
+    border-radius: 10px;
+    background-color: rgba(237, 250, 249, 0.733);
+    width:200px;
+    color: rgb(103, 122, 115);
+}
+
+.ref-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    color: black;
+  }
+  
+  .ref-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.253);
+  }
+
+.close{
+    color: black;
+  }
+
+  .open{
+    margin-left: 70px;
+    color: rgb(96, 141, 141);
+  }
+
+  .open:hover{
+    background-color: rgba(251, 240, 114, 0.852);
+    border-radius: 10px;
+  }
+
+
+
+
+
+
+  

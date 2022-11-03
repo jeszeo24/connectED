@@ -14,16 +14,22 @@ function App() {
 
   return (
     <div className="App">
-      <nav>
-      <button className={isStudent? "student": null} onClick={(e) => handleChangeView(true)}>STUDENT</button>
-      <button className={!isStudent? "teacher": null} onClick={(e) => handleChangeView(false)}>TEACHER</button>
-    </nav>
+    <h1>connectED</h1>
+      <nav className="user">
+      <button className={isStudent? "active" : null} onClick={(e) => handleChangeView(true)}>STUDENT</button>
+      <button className={!isStudent? "active" : null} onClick={(e) => handleChangeView(false)}>TEACHER</button>
+    </nav> 
+    
+    <div className="main"> 
+    <div className="main2">
+
     {
       isStudent?
     <StudentView/>
     :<TeacherView/>
     }
-    
+    </div>
+    </div>
     </div>
   );
 }

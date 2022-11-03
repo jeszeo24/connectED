@@ -1,0 +1,18 @@
+.note-lay{
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.note-list{
+    border-radius: 10px;
+    background-color: rgba(237, 250, 249, 0.733);
+    width:400px;
+    color: rgb(103, 122, 115);
+
+}
+
+.delete{
+    font-weight: bolder;
+    color: rgb(21, 76, 76);
+   
+}

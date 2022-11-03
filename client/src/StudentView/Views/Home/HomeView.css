@@ -1,6 +1,7 @@
-.ref-view{
+.note-view{
     width: 60%;
     height: auto;
     float: right;
-    border: solid;
+    border: none;
 }
+

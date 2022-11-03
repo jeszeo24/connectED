@@ -1,39 +1,40 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import Navbar from '../StudentView/Navbar'
 import './StudentView.css'
 
-import HomeView from '../StudentView/Views/HomeView'
-import NotesView from '../StudentView/Views/NotesView'
-import ReflectionView from '../StudentView/Views/ReflectionView'
-import ResourcesView from '../StudentView/Views/ResourcesView'
-import WeatherView from '../StudentView/Views/Weather/WeatherView'
-import NewsView from '../StudentView/Views/News/NewsView'
+import HomeView from '../StudentView/Views/Home/HomeView'
+import NotesView from '../StudentView/Views/Notes/NotesView'
+import ReflectionView from '../StudentView/Views/Reflection/ReflectionView'
+import ResourcesView from '../StudentView/Views/Resources/ResourcesView'
+import WeatherView from '../StudentView/Weather/WeatherView'
+import NewsView from '../StudentView/News/NewsView'
 
-function StudentView() {
+function StudentView(props) {
+  
   return (
     <div className='StudentView'>
-
-      <Navbar />
-
+      <div className='nav-area'>
+      <Navbar /> 
+      </div>
       <Routes>
         <Route path="/" element={<HomeView />} />
         <Route path= "notes" element={<NotesView/>} />
         <Route path="reflection" element={<ReflectionView />} />
         <Route path="resources" element={<ResourcesView/>} />
 
-      </Routes> 
+      </Routes>
 
-      <div>
+     
+     
+      <div className='weather-box'>
         <WeatherView/>
       </div>
-
-      <div>
+      <div className='news-box' id='scroll'>
         <NewsView/>
       </div>
-
-
-    </div>
+      
+      </div>
   )
 }
 

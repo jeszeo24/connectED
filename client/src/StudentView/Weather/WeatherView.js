@@ -1,12 +1,18 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import "./WeatherView.css"
 
 let WEATHER_URL =
   "https://api.openweathermap.org/data/2.5/weather?appid=93ae7f6100d821e042d321ce66fcb8a6&units=metric&q=";
 
+let ICON_URL = (iconID) => `http://openweathermap.org/img/wn/${iconID}@2x.png`
+
 function WeatherView() {
     const [location, setLocation] = useState(''); 
     const [weather, setWeather] = useState({});
+
+  //   useEffect(() => {
+  //     getWeather();  
+  // }, []);
 
     const handleChange = e => {
         setLocation(e.target.value);
@@ -36,6 +42,7 @@ function WeatherView() {
 
   return (
     <div className='WeatherView'>
+      <div className='weather-form'>
         <form onSubmit={handleSubmit}>
           <label>
             <input
@@ -45,10 +52,13 @@ function WeatherView() {
               onChange={handleChange}
             />
           </label>
+          <div className='weather-btn'>
           <button type="submit">
-            Search
+          <i className="fa fa-search"/>
           </button>
+          </div>
         </form>
+        </div>
 
         <div className='container'>
             <div className='top'>
@@ -64,10 +74,10 @@ function WeatherView() {
     </div>
       <div className='bottom'>
       <div className='humidity'>
-        {weather.main? <p>{weather.main.humidity}%</p> : null}
+      <p>Humidity: </p> {weather.main? <h5>{weather.main.humidity}%</h5> : null}
     </div>
       <div className='wind'>
-        {weather.wind? <p>{weather.wind.speed}mph</p> : null }
+        <p>Wind Speed:</p> {weather.wind? <h5>{weather.wind.speed}mph</h5> : null }
       </div>
      </div>
     </div>

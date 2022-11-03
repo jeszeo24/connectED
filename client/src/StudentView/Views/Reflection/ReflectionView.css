@@ -1,0 +1,46 @@
+
+
+.inline{
+    display: inline;
+    margin: 0 3px 0 0px
+}
+
+button{
+    display: block;
+}
+
+.reflectionForm{
+    width: 60%;
+    height: auto;
+    float: right;
+    border: none;
+}
+
+input, textarea {
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+    border-color: rgba(255, 240, 245, 0.406);
+    font-family: "Baloo 2", cursive;
+    background-color: rgba(255, 240, 245, 0.468);
+  }
+
+  textarea {
+    height: 5em;
+    font-style: italic;
+    font-weight:bold;
+    width: 600px;
+    border-radius: 20px;
+  } 
+
+  .studentid{
+    margin: 20px;
+  }
+
+  .ref-btn{
+    border: solid;
+    margin-left: 300px;
+    margin-top: 40px;
+    width: 100px;
+    border-radius: 10px;
+  }

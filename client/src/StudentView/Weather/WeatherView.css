@@ -1,0 +1,53 @@
+.weather-form input{
+    display: inline;
+    background-color: rgba(245, 222, 179, 0);
+    border: none;
+    text-align: left;
+    width: 120px;
+    color: rgb(125, 125, 118);
+    text-transform: capitalize;
+    
+}
+
+
+input:focus{
+    outline: none;
+}
+
+.weather-btn{
+    display: inline-block;
+
+}
+
+
+
+.container{
+    margin-top: 10px;
+    width: 80%;
+    font-size: small;
+    color: rgb(59, 156, 161);
+}
+
+.bottom{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(157, 197, 194, 0.58);
+    
+}
+
+.location{
+    font-size: large;
+    font-weight: bolder;
+}
+
+p{
+    font-weight: bold;
+}
+
+
+
+
