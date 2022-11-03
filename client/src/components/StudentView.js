@@ -22,7 +22,7 @@ function StudentView(props) {
         <Route path= "notes" element={<NotesView/>} />
         <Route path="reflection" element={<ReflectionView />} />
         <Route path="resources" element={<ResourcesView/>} />
-
+        {/* <Route path="chat" element={<ChatView/>} /> */}
       </Routes>
 
      
@@ -33,7 +33,7 @@ function StudentView(props) {
       <div className='news-box' id='scroll'>
         <NewsView/>
       </div>
-      
+    
       </div>
   )
 }
