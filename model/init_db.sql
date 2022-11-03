@@ -1,6 +1,7 @@
 
 DROP TABLE IF EXISTS reflection;
 DROP TABLE IF EXISTS notes;
+DROP TABLE IF EXISTS messages;
 
 CREATE TABLE reflection (
  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -34,7 +35,13 @@ VALUES ('2022-09-02', 15, 'Found the concept of databases difficult','Read the e
 INSERT INTO notes (noteDate, title, note)
 VALUES ('2022-09-03', 'Lorem Ipsum', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
 
-
+CREATE TABLE messages (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  senderId INT NOT NULL,
+  receiverId INT NOT NULL,
+  text VARCHAR(250) NOT NULL,
+  dateTime DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
  
 

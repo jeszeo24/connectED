@@ -9,6 +9,7 @@ import ReflectionView from '../StudentView/Views/Reflection/ReflectionView'
 import ResourcesView from '../StudentView/Views/Resources/ResourcesView'
 import WeatherView from '../StudentView/Weather/WeatherView'
 import NewsView from '../StudentView/News/NewsView'
+import ChatView from '../StudentView/Views/Chat/ChatView'
 
 function StudentView(props) {
   
@@ -22,7 +23,7 @@ function StudentView(props) {
         <Route path= "notes" element={<NotesView/>} />
         <Route path="reflection" element={<ReflectionView />} />
         <Route path="resources" element={<ResourcesView/>} />
-        {/* <Route path="chat" element={<ChatView/>} /> */}
+        <Route path="chat" element={<ChatView/>} />
       </Routes>
 
      
@@ -33,6 +34,9 @@ function StudentView(props) {
       <div className='news-box' id='scroll'>
         <NewsView/>
       </div>
+      {/* <div className='news-box' id='scroll'>
+        <ChatView/>
+      </div> */}
     
       </div>
   )

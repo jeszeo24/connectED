@@ -15,9 +15,11 @@ function Chat(props) {
 
         // Establish connection with Pusher
         // pusherkey is stored in client's .env file
+
+        // COMMENTED OUT BELOW, HARDCODED IT INTO
         let pusherKey = process.env.REACT_APP_PUSHER_KEY;
         let options = {cluster: "ap1", forceTLS: true };
-        pusherRef.current = new Pusher(pusherKey, options); // made a connection to Pusher, want to keep the connection (and not lose it everytime page rerenders - hence useRef)
+        pusherRef.current = new Pusher("944c0d1446e60e62c9a5", options); // made a connection to Pusher, want to keep the connection (and not lose it everytime page rerenders - hence useRef)
         // NOTE: useRef has a property called "current"
 
 

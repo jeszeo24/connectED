@@ -1,0 +1,11 @@
+.ChatView {
+  width: 60%;
+  height: auto;
+  float: right;
+  border: solid;
+  background-color: black;
+}
+
+.h1 {
+  color: blueviolet;
+}
