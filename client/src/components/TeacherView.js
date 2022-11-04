@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import ReflectionList from '../StudentView/Views/Reflection/ReflectionList'
 
 function TeacherView(props) {
@@ -26,7 +27,10 @@ function TeacherView(props) {
 
   return (
     <div>
-    <ReflectionList reflection1={reflection}/>
+    <Routes>
+    <Route path="" element={<ReflectionList reflection1={reflection}/>} />
+    {/* <Route path="chat/2" element={<ChatView/>} /> */}
+    </Routes>
     </div>
   )
 }

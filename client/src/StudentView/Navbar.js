@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 
 
-function Navbar() {
+function Navbar(props) {
   return (
     <div>
     <nav className='Navbar'>
@@ -12,7 +12,7 @@ function Navbar() {
             <li><NavLink to ="notes">Notes</NavLink></li>
             <li><NavLink to ="reflection">Reflection</NavLink></li>
             <li><NavLink to ="resources">Resources</NavLink></li>
-            <li><NavLink to ="chat">Chat</NavLink></li>
+            <li><NavLink to ="chat/1">Chat</NavLink></li>
         </ul>
     </nav>
     </div>

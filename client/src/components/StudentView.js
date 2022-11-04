@@ -23,7 +23,13 @@ function StudentView(props) {
         <Route path= "notes" element={<NotesView/>} />
         <Route path="reflection" element={<ReflectionView />} />
         <Route path="resources" element={<ResourcesView/>} />
-        <Route path="chat" element={<ChatView/>} />
+        <Route path="chat/1" element={<ChatView
+        senderId={props.senderId}
+        setSenderIdCb={props.setSenderIdCb}
+        groupId={props.groupId}
+        user={props.user}
+        users={props.users}
+        />} />
       </Routes>
 
      

@@ -5,6 +5,7 @@ import Pusher from "pusher-js";
 import axios from "axios";
 import ChatList from "../components/ChatList";
 import ChatInput from "../components/ChatInput";
+import Navbar from '../StudentView/Navbar'
 
 function ChatView(props) {
     const [messages, setMessages] = useState([]);
@@ -71,7 +72,7 @@ function ChatView(props) {
     // Load previous messages from DB
     async function getRecentMessages() {
         try {
-            let response = await axios.get(`/chat/${props.senderId}/${props.groupId}`);
+            let response = await axios.get(`/chat/${props.groupId}`);
             setMessages(response.data);
         } catch (err) {
             if (err.response) {
@@ -88,7 +89,7 @@ function ChatView(props) {
         try {
             // Send text and socketId to our server
             let body = {text, socketId: socketIdRef.current };
-            let response = await axios.post(`/chat/${props.senderId}/${props.groupId}`, body); // post to our server
+            let response = await axios.post(`/chat/${props.groupId}/${props.senderId}`, body); // post to our server
             // Server responds with "complete" msg (including ID and date/time)
             let completeMsg = response.data;
             setMessages(messages => [...messages, completeMsg]); // update messages 
@@ -137,6 +138,7 @@ function ChatView(props) {
 
     return (
         <div className="ChatView">
+            <Navbar />
             <ChatList 
             messages={messages}
             user={props.user} 

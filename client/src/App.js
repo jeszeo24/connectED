@@ -24,9 +24,9 @@ function App() {
   const [users, setUsers] = useState([]); // lists of users
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
+  // useEffect(() => {
+  //   fetchUsers();
+  // }, []);
 
   async function doLogin(username, password) {
     let myresponse = await Api.loginUser(username, password);
@@ -34,6 +34,8 @@ function App() {
         Local.saveUserInfo(myresponse.data.token, myresponse.data.user);
         setUser(myresponse.data.user);
         setLoginErrorMsg('');
+        // setIsStudent(user.isStaff ? 2 : 1);
+        // console.log(isStudent);
         navigate('/');
     } else {
         setLoginErrorMsg('Login failed');
@@ -61,12 +63,6 @@ console.log(user);
     setIsStudent(isStudent);
   };
 
-  // navigate to chat for selected group
-  // function goToChatView(id) {
-  //   navigate(`/${id}/chat`);
-  // }
-
-
   return (
     <div className="App">
       <NavBar user={user} logoutCb={doLogout} />
@@ -89,7 +85,7 @@ console.log(user);
                 } 
               />
         <Route
-              path="/:id/chat"
+              path="/chat/:id" // channelname (ChatView row 50)
               element={
                 <ChatView
                   senderId={senderId}
@@ -100,22 +96,28 @@ console.log(user);
                 />
               }
             />
-        {user.isStaff} ? { user.isStaff ? 
+        {user && user.isStaff ? 
         <Route 
-              path="/staff" 
+              path="/" 
               element={
                 <PrivateRoute>
                     <TeacherView/> 
                 </PrivateRoute>
                 } /> : 
         <Route 
-              path="/student" 
+              path="/" 
               element={
                   <PrivateRoute>
-                      <StudentView/> 
+                      <StudentView
+                      senderId={senderId}
+                      setSenderIdCb={setSenderId}
+                      groupId={groupId}
+                      user={user}
+                      users={users}
+                      /> 
                   </PrivateRoute>
                   } />
-          } : {null};
+          }
       </Routes>
     
     </div>
