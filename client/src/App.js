@@ -61,6 +61,11 @@ console.log(user);
     setIsStudent(isStudent);
   };
 
+  // navigate to chat for selected group
+  // function goToChatView(id) {
+  //   navigate(`/${id}/chat`);
+  // }
+
 
   return (
     <div className="App">

@@ -1,6 +1,7 @@
 // Source: Jim's Web Sockets demo
 
 import React, { useState } from "react";
+import "./ChatInput.css";
 
 function ChatInput(props) {
     const [text, setText] = useState("");
@@ -25,6 +26,7 @@ function ChatInput(props) {
                     value={text}
                     onChange={handleChange}
                 />
+
             </form>
         </div>
     );

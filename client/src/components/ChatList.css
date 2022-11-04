@@ -1,8 +1,9 @@
 .ChatList {
     background-color: #f6f6f6;
-    height: 200px;
+    height: 500px;
     padding: 5px;
     overflow-y: auto;
+    padding-top: 20px;
 }
 
 .ChatList p {
@@ -13,9 +14,14 @@
     display: inline-block;
     max-width: 90%;
     border-radius: 5px;
+    margin-bottom: 0.5rem;
 }
 
 .ChatList .sender {
+    text-align: right;
+}
+
+.ChatList .receiver {
     text-align: right;
 }
 
@@ -28,3 +34,4 @@
     padding: 3px 5px;
     background-color: lightgreen;
 }
+

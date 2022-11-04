@@ -20,7 +20,7 @@ function formatDT(dt) {
 }
 
 return (
-    <div className="chatList" ref={listDiv}>
+    <div className="ChatList" ref={listDiv}>
       {props.messages.map((m) => (
         <div key={m.id}>
           {m.senderId === props.user.id ? (
