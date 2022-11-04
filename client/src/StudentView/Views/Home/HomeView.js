@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import './HomeView.css'
 import NoteList from '../Notes/NoteList'
-
+import Navbar from '../../../StudentView/Navbar'
 
 function HomeView(props) {
   const [note, setNote] = useState([]);
 
-  
 
   useEffect(() => {
       getNote();  
@@ -25,6 +24,8 @@ function HomeView(props) {
           console.log(`Server error: ${err.message}`);
       }
   };
+
+  console.log(note);
 
   async function deleteNote(id) {
     let options = {
@@ -47,6 +48,7 @@ function HomeView(props) {
 
   return (
     <div className='StudentView'>
+        <Navbar />
       <div className='note-view'>
         <NoteList 
             note1={note}

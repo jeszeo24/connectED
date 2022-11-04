@@ -13,6 +13,7 @@ import PrivateRoute from './components/PrivateRoute';
 import LoginView from './views/LoginView';
 import ChatView from "./views/ChatView";
 import RegisterView from "./views/RegisterView";
+import HomeView from './StudentView/Views/Home/HomeView'
 import NotesView from './StudentView/Views/Notes/NotesView'
 import ReflectionView from "./StudentView/Views/Reflection/ReflectionView";
 import ResourcesView from './StudentView/Views/Resources/ResourcesView'
@@ -95,10 +96,10 @@ console.log(user);
     <div className="App">
       <NavBar user={user} logoutCb={doLogout} />
     <h1>connectED</h1>
-      <nav className="user">
+      {/* <nav className="user">
       <button className={isStudent? "active" : null} onClick={(e) => handleChangeView(true)}>STUDENT</button>
       <button className={!isStudent? "active" : null} onClick={(e) => handleChangeView(false)}>TEACHER</button>
-    </nav> 
+    </nav>  */}
 
     <div className="main"> 
 
@@ -128,6 +129,7 @@ console.log(user);
                 />
               }
             />
+        <Route path="/" element={<HomeView />} /> 
         <Route path="/notes" element={<NotesView/>} />
         <Route path="/reflection" element={<ReflectionView />} />
         <Route path="/resources" element={<ResourcesView/>} />
