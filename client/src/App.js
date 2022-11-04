@@ -17,7 +17,8 @@ import HomeView from './StudentView/Views/Home/HomeView'
 import NotesView from './StudentView/Views/Notes/NotesView'
 import ReflectionView from "./StudentView/Views/Reflection/ReflectionView";
 import ResourcesView from './StudentView/Views/Resources/ResourcesView'
-import WeatherView from "./StudentView/Weather/WeatherView";
+import WeatherView from './StudentView/Weather/WeatherView'
+import NewsView from './StudentView/News/NewsView'
 
 function App() {
   const [isStudent, setIsStudent] = useState (true);
@@ -133,6 +134,7 @@ console.log(user);
         <Route path="/notes" element={<NotesView/>} />
         <Route path="/reflection" element={<ReflectionView />} />
         <Route path="/resources" element={<ResourcesView/>} />
+  
 
         {user && user.isStaff ? 
         <Route 

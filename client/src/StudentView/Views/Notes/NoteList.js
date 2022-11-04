@@ -10,6 +10,7 @@ function NoteList(props) {
                 key={n.id}>
                     <button className='delete' onClick={(e) => props.deleteNote1(n.id)} title="delete" type="button">x</button>
                     {n.title} <br></br>
+                    {n.note} <br></br>
                     {(new Date(n.noteDate)).toDateString()}
                     
             </li>

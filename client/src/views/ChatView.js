@@ -6,6 +6,8 @@ import axios from "axios";
 import ChatList from "../components/ChatList";
 import ChatInput from "../components/ChatInput";
 import Navbar from '../StudentView/Navbar'
+import WeatherView from '../StudentView/Weather/WeatherView'
+import NewsView from '../StudentView/News/NewsView'
 
 function ChatView(props) {
     const [messages, setMessages] = useState([]);
@@ -153,6 +155,14 @@ function ChatView(props) {
             sendCb={text => sendMessage(text)} 
             /> {/* receive text from child ChatInput, and uses it in sendMessage function */}
         </div>
+
+        <div className='weather-box'>
+        <WeatherView/>
+      </div>
+      <div className='news-box' id='scroll'>
+        <NewsView/>
+      </div>
+
         </div>
     );
 }

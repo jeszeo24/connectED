@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import './HomeView.css'
 import NoteList from '../Notes/NoteList'
 import Navbar from '../../../StudentView/Navbar'
+import WeatherView from '../../../StudentView/Weather/WeatherView'
+import NewsView from '../../../StudentView/News/NewsView'
 
 function HomeView(props) {
   const [note, setNote] = useState([]);
@@ -54,6 +56,14 @@ function HomeView(props) {
             note1={note}
             deleteNote1={deleteNote}/>
       </div>
+
+      <div className='weather-box'>
+        <WeatherView/>
+      </div>
+      <div className='news-box' id='scroll'>
+        <NewsView/>
+      </div>
+
     </div>
   )
 }

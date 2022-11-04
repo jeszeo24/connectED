@@ -2,6 +2,8 @@
 import React, { useState } from 'react'
 import './ReflectionView.css';
 import Navbar from '../../../StudentView/Navbar'
+import WeatherView from '../../../StudentView/Weather/WeatherView'
+import NewsView from '../../../StudentView/News/NewsView'
 
 const EMPTY_FORM ={
   refDate: '',
@@ -170,6 +172,14 @@ function ReflectionView(props) {
       </label>
       <button className='ref-btn' type='submit'>Submit</button>
     </form>
+
+    <div className='weather-box'>
+        <WeatherView/>
+      </div>
+      <div className='news-box' id='scroll'>
+        <NewsView/>
+      </div>
+
     </div>
   )
 }
