@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import ReflectionList from '../StudentView/Views/Reflection/ReflectionList'
+import NavbarStaff from './NavBarStaff'
 
 function TeacherView(props) {
   const [reflection, setReflection] = useState([]);
@@ -27,9 +28,10 @@ function TeacherView(props) {
 
   return (
     <div>
+        <NavbarStaff />
     <Routes>
-    <Route path="" element={<ReflectionList reflection1={reflection}/>} />
-    {/* <Route path="chat/2" element={<ChatView/>} /> */}
+        <Route path="" element={<ReflectionList reflection1={reflection}/>} />
+        {/* <Route path="chat/2" element={<ChatView/>} /> */}
     </Routes>
     </div>
   )

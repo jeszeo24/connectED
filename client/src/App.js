@@ -16,6 +16,7 @@ import RegisterView from "./views/RegisterView";
 import HomeView from './StudentView/Views/Home/HomeView'
 import NotesView from './StudentView/Views/Notes/NotesView'
 import ReflectionView from "./StudentView/Views/Reflection/ReflectionView";
+import ReflectionList from "./StudentView/Views/Reflection/ReflectionList";
 import ResourcesView from './StudentView/Views/Resources/ResourcesView'
 import WeatherView from './StudentView/Weather/WeatherView'
 import NewsView from './StudentView/News/NewsView'
@@ -26,6 +27,7 @@ function App() {
   const [senderId, setSenderId] = useState(1);
   const [groupId, setGroupId] = useState(2);
   const [loginErrorMsg, setLoginErrorMsg] = useState('');
+  const [error, setError] = useState("");
   const [users, setUsers] = useState([]); // lists of users
   const navigate = useNavigate();
 
@@ -82,16 +84,25 @@ console.log(user);
     }
   }
 
-  // function setGroupId() {
-  //   if (user.isStaff) {
-  //     setGroupId(1)
-  //   } else {
-  //     setGroupId(2);
-  //   }
-  // }
-  const handleChangeView = (isStudent) => {
-    setIsStudent(isStudent);
-  };
+   // get group by id
+   async function getGroup(id) {
+    let myresponse = await Api.getGroup(id);
+    if (myresponse.ok) {
+      setGroupId(myresponse.data.id);
+      //navigate to trip/id page after
+      navigate(`/group/${id}`);
+    } else {
+      setError(myresponse.error);
+    }
+  }
+
+  function goToChatView(id) {
+    navigate(`/${id}/chat`);
+  }
+
+  // const handleChangeView = (isStudent) => {
+  //   setIsStudent(isStudent);
+  // };
 
   return (
     <div className="App">
@@ -130,10 +141,12 @@ console.log(user);
                 />
               }
             />
-        <Route path="/" element={<HomeView />} /> 
+        <Route path="/home" element={<HomeView />} /> 
         <Route path="/notes" element={<NotesView/>} />
         <Route path="/reflection" element={<ReflectionView />} />
         <Route path="/resources" element={<ResourcesView/>} />
+
+        {/* <Route path="/staff-Reflection" element={<ReflectionList/>} /> */}
   
 
         {user && user.isStaff ? 

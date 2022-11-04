@@ -55,9 +55,9 @@ class Api {
         } catch (err) {
             myresponse.error = err.message;
         }
-
         return myresponse;
     }
+
 
    // Log in a user
     static async loginUser(username, password) {
@@ -87,6 +87,11 @@ class Api {
     static async getContent(url) {
         return await this._doFetch(url);
     }
+
+    // Get a group by id?
+    static async getGroup(id) {
+    return await this._doFetch(`/group/${id}`);
+  }
 
 }
 

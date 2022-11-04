@@ -1,0 +1,28 @@
+ul{
+    list-style: none; 
+    gap: 140px;
+    padding-top: 10px;
+    display: inline-flex
+
+}
+
+.NavbarStaff {
+    background-color: #ff5e5b;
+    margin-bottom: 20px;
+}
+
+
+a {
+    color: rgba(255, 255, 255, 0.562);
+    text-decoration: none;
+}
+
+a.active{
+    color: #ffffff;
+    font-weight:700;
+    letter-spacing: 4px;
+}
+
+a:hover{
+    color: rgb(235, 241, 167) ;
+}
