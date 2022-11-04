@@ -7,7 +7,7 @@ const db = require("../model/helper");
 const Pusher = require("pusher");
 
 // Number of prior messages to GET
-const GET_MESSAGE_COUNT = 5;
+const GET_MESSAGE_COUNT = 10;
 
 // Initialize the Pusher connection
 const channel = new Pusher({
@@ -19,14 +19,13 @@ const channel = new Pusher({
 });
 
 // GET the most recent messages for channel
-router.get("/:senderId/:receiverId", async function (req, res) {
-    let { senderId, receiverId } = req.params;
+router.get("/:groupId", async function (req, res) {
+    let { groupId } = req.params;
 
     try {
         let sql = `
             SELECT * FROM messages
-            WHERE senderId IN (${senderId}, ${receiverId}) AND
-                receiverId IN (${senderId}, ${receiverId})
+            WHERE groupId = ${groupId}
             ORDER BY dateTime DESC
             LIMIT ${GET_MESSAGE_COUNT}
             `;
@@ -38,8 +37,8 @@ router.get("/:senderId/:receiverId", async function (req, res) {
     });
 
 // Save new message in DB and publish to Pusher
-router.post("/:senderId/:receiverId", async function (req, res) {
-    let { senderId, receiverId } = req.params;
+router.post("/:groupId/:senderId", async function (req, res) {
+    let { senderId, groupId } = req.params;
     let { text, socketId } = req.body;
 
     // Escape possible single quotes in text before writing to the DB
@@ -49,8 +48,8 @@ router.post("/:senderId/:receiverId", async function (req, res) {
     let completeMsg = null;
     try {
         let sql = `
-            INSERT INTO messages (senderId, receiverId, text)
-            VALUES (${senderId}, ${receiverId}, "${text4db}");
+            INSERT INTO messages (senderId, groupId, text)
+            VALUES (${senderId}, ${groupId}, "${text4db}");
 
             SELECT LAST_INSERT_ID() 
         `;
@@ -65,8 +64,7 @@ router.post("/:senderId/:receiverId", async function (req, res) {
     }
 
     // What's the channel name for these two users? Something like "channel-1-2"
-    let ids = [senderId, receiverId].sort(); // sort so that users are always on same channel
-    let channelName = "channel-" + ids.join("-");
+    let channelName = "channel-" + groupId;
 
     // Publish message to Pusher to broadcast on the users' channel
     // Include sender's socketId so sender won't receive message (when each end opens, each get a unique web socketId)

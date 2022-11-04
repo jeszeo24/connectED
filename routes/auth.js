@@ -35,7 +35,7 @@ router.post('/register', async (req, res) => {
  * Log in a user
  **/
 
-router.post("login/", async (req, res) => {
+router.post("/login", async (req, res) => {
     let { username, password } = req.body;
 
     try {

@@ -20,19 +20,34 @@ function formatDT(dt) {
 }
 
 return (
-    <div className="ChatList rounded mb-1" ref={listDiv}>
-    {
-        props.messages.map(m => (
-            <p
-                key={m.id}
-                className={ m.senderId === props.senderId ? "sender" : "receiver" } 
-            > {/* receives senderId from parent Chat */}
+    <div className="chatList" ref={listDiv}>
+      {props.messages.map((m) => (
+        <div key={m.id}>
+          {m.senderId === props.user.id ? (
+            <div>
+              <div key={m.id} className="sender">
                 <span title={formatDT(m.dateTime)}>{m.text}</span>
-            </p>
-        ))
-    }
+              </div>
+            </div>
+          ) : (
+            <div key={m.id}>
+              <div className="receiver">
+                {props.users.map((user) =>
+                  user.id === m.senderId ? (
+                    <div key={user.id}>{user.username}</div>
+                  ) : (
+                    <div key={user.id}></div>
+                  )
+                )}
+
+                <span title={formatDT(m.dateTime)}>{m.text}</span>
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
     </div>
-    );
+  );
 }
 
 export default ChatList;

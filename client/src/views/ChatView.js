@@ -3,10 +3,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import Pusher from "pusher-js";
 import axios from "axios";
-import ChatList from "./ChatList";
-import ChatInput from "./ChatInput";
+import ChatList from "../components/ChatList";
+import ChatInput from "../components/ChatInput";
 
-function Chat(props) {
+function ChatView(props) {
     const [messages, setMessages] = useState([]);
     const pusherRef = useRef(null); // store a value that will be maintained/not lost between renders (not reactive/won't be lost/recalculated when rerenders)
     const socketIdRef = useRef(null);
@@ -136,11 +136,19 @@ function Chat(props) {
 //   }
 
     return (
-        <div className="Chat">
-            <ChatList messages={messages} senderId={props.senderId} /> {/* Chat receives senderId from parent ChatView*/}
-            <ChatInput sendCb={text => sendMessage(text)} /> {/* receive text from child ChatInput, and uses it in sendMessage function */}
+        <div className="ChatView">
+            <ChatList 
+            messages={messages}
+            user={props.user} 
+            senderId={props.senderId}
+            groupId={props.groupId}
+            users={props.users}
+            /> {/* Chat receives senderId from parent ChatView*/}
+            <ChatInput 
+            sendCb={text => sendMessage(text)} 
+            /> {/* receive text from child ChatInput, and uses it in sendMessage function */}
         </div>
     );
 }
 
-export default Chat;
+export default ChatView;
