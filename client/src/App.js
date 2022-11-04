@@ -94,7 +94,7 @@ console.log(user);
                 } 
               />
         <Route
-              path="/chat/:id" // channelname (ChatView row 50)
+              path="/chat" // channelname (ChatView row 50)
               element={
                 <ChatView
                   senderId={senderId}

@@ -19,36 +19,26 @@ function formatDT(dt) {
     return new Date(dt).toLocaleString();
 }
 
+console.log(props.messages) // NOTE: senderId is ALWAYS 1
+console.log(props.user.id)
+
 return (
     <div className="ChatList" ref={listDiv}>
        {props.messages.map((m) => (
         <div key={m.id}>
           {m.senderId === props.user.id ? (
-            <div>
               <div key={m.id} className="sender">
                 <span title={formatDT(m.dateTime)}>{m.text}</span>
-    
               </div>
-            </div>
+              
           ) : (
-            <div key={m.id}>
-              <div className="receiver">
-                {props.users.map((user) =>
-                  user.id === m.senderId ? (
-                    <div key={user.id}>{user.fullname}</div>
-                  ) : (
-                    <div key={user.id}></div>
-                  )
-                )}
 
+              <div key={m.id} className="receiver">
                 <span title={formatDT(m.dateTime)}>{m.text}</span>
-            
               </div>
-            </div>
           )}
         </div>
       ))}
-          
         </div>
   );
 }
