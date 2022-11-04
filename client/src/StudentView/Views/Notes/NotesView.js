@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './NotesView.css'
+import Navbar from '../../../StudentView/Navbar'
 
 
   const EMPTY_NOTE ={
@@ -42,6 +43,8 @@ import './NotesView.css'
       }
   }
   return (
+    <div className='NotesView'>
+      <Navbar />
     <div className='notes-lay'>
     <form className='notes-lay1'onSubmit={handleSubmit}>
        <label className='date'>
@@ -73,6 +76,7 @@ import './NotesView.css'
           Add Note
         </button>
     </form>
+    </div>
     </div>
   )
 }

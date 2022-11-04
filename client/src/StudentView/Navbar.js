@@ -9,10 +9,10 @@ function Navbar(props) {
     <nav className='Navbar'>
         <ul>
             <li><NavLink to ="/"> Home</NavLink></li>
-            <li><NavLink to ="notes">Notes</NavLink></li>
-            <li><NavLink to ="reflection">Reflection</NavLink></li>
-            <li><NavLink to ="resources">Resources</NavLink></li>
-            <li><NavLink to ="chat/1">Chat</NavLink></li>
+            <li><NavLink to ="/notes">Notes</NavLink></li>
+            <li><NavLink to ="/reflection">Reflection</NavLink></li>
+            <li><NavLink to ="/resources">Resources</NavLink></li>
+            <li><NavLink to ="/chat/:id">Chat</NavLink></li>
         </ul>
     </nav>
     </div>

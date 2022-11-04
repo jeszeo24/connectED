@@ -137,8 +137,11 @@ function ChatView(props) {
 //   }
 
     return (
-        <div className="ChatView">
+        <div>
             <Navbar />
+
+        <div className="ChatView">
+            
             <ChatList 
             messages={messages}
             user={props.user} 
@@ -149,6 +152,7 @@ function ChatView(props) {
             <ChatInput 
             sendCb={text => sendMessage(text)} 
             /> {/* receive text from child ChatInput, and uses it in sendMessage function */}
+        </div>
         </div>
     );
 }

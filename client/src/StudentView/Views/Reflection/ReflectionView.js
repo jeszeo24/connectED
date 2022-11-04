@@ -1,6 +1,7 @@
 // import { text } from 'express';
 import React, { useState } from 'react'
 import './ReflectionView.css';
+import Navbar from '../../../StudentView/Navbar'
 
 const EMPTY_FORM ={
   refDate: '',
@@ -50,6 +51,8 @@ function ReflectionView(props) {
 
 
   return (
+    <div>
+      <Navbar />
     <form className='reflectionForm' onSubmit={handleSubmit}>
       <label className='date'>
         Date
@@ -167,6 +170,7 @@ function ReflectionView(props) {
       </label>
       <button className='ref-btn' type='submit'>Submit</button>
     </form>
+    </div>
   )
 }
 

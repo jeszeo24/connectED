@@ -12,7 +12,9 @@ import NavBar from './components/NavBar';
 import PrivateRoute from './components/PrivateRoute';
 import LoginView from './views/LoginView';
 import ChatView from "./views/ChatView";
-import ReflectionList from "./StudentView/Views/Reflection/ReflectionList";
+import NotesView from './StudentView/Views/Notes/NotesView'
+import ReflectionView from "./StudentView/Views/Reflection/ReflectionView";
+import ResourcesView from './StudentView/Views/Resources/ResourcesView'
 import WeatherView from "./StudentView/Weather/WeatherView";
 
 function App() {
@@ -59,6 +61,13 @@ console.log(user);
     }
   }
 
+  // function setGroupId() {
+  //   if (user.isStaff) {
+  //     setGroupId(1)
+  //   } else {
+  //     setGroupId(2);
+  //   }
+  // }
   const handleChangeView = (isStudent) => {
     setIsStudent(isStudent);
   };
@@ -96,6 +105,10 @@ console.log(user);
                 />
               }
             />
+        <Route path="notes" element={<NotesView/>} />
+        <Route path="reflection" element={<ReflectionView />} />
+        <Route path="resources" element={<ResourcesView/>} />
+
         {user && user.isStaff ? 
         <Route 
               path="/" 
@@ -122,25 +135,6 @@ console.log(user);
     
     </div>
     
-    {/* <h1 className="text-center my-4">Chat</h1>
-
-    <div className="d-flex justify-content-between mb-1">
-        <select name="receiverId" value={receiverId} onChange={handleChange}>
-            <option value="1">Maria</option>
-            <option value="2">Raul</option>
-            <option value="3">Ana</option>
-            <option value="4">Sam</option>
-        </select>
-
-        <select name="senderId" value={senderId} onChange={handleChange}>
-            <option value="1">Maria</option>
-            <option value="2">Raul</option>
-            <option value="3">Ana</option>
-            <option value="4">Sam</option>
-        </select>
-    </div>
-
-<Chat senderId={senderId} receiverId={receiverId} /> */}
     </div> 
   );
 }

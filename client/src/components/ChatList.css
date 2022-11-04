@@ -22,7 +22,7 @@
 }
 
 .ChatList .receiver {
-    text-align: right;
+    text-align: left;
 }
 
 .ChatList .sender span {

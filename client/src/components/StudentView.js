@@ -18,31 +18,27 @@ function StudentView(props) {
       <div className='nav-area'>
       <Navbar /> 
       </div>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<HomeView />} />
-        <Route path= "notes" element={<NotesView/>} />
-        <Route path="reflection" element={<ReflectionView />} />
-        <Route path="resources" element={<ResourcesView/>} />
-        <Route path="chat/1" element={<ChatView
-        senderId={props.senderId}
-        setSenderIdCb={props.setSenderIdCb}
-        groupId={props.groupId}
-        user={props.user}
-        users={props.users}
+        <Route path="/notes" element={<NotesView/>} />
+        <Route path="/reflection" element={<ReflectionView />} />
+        <Route path="/resources" element={<ResourcesView/>} />
+        <Route path="/chat/:id" element={<ChatView
+        // senderId={props.senderId}
+        // setSenderIdCb={props.setSenderIdCb}
+        // groupId={props.groupId}
+        // user={props.user}
+        // users={props.users}
         />} />
-      </Routes>
+      </Routes> */}
 
-     
-     
       <div className='weather-box'>
         <WeatherView/>
       </div>
       <div className='news-box' id='scroll'>
         <NewsView/>
       </div>
-      {/* <div className='news-box' id='scroll'>
-        <ChatView/>
-      </div> */}
+
     
       </div>
   )
