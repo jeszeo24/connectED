@@ -13,6 +13,8 @@ function RegisterView(props) {
   function handleChange(event) {
     let { name, value } = event.target;
 
+    console.log(formData.checked);
+
     setFormData((data) => ({
       ...data,
       [name]: value,
