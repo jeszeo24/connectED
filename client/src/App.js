@@ -12,6 +12,7 @@ import NavBar from './components/NavBar';
 import PrivateRoute from './components/PrivateRoute';
 import LoginView from './views/LoginView';
 import ChatView from "./views/ChatView";
+import RegisterView from "./views/RegisterView";
 import NotesView from './StudentView/Views/Notes/NotesView'
 import ReflectionView from "./StudentView/Views/Reflection/ReflectionView";
 import ResourcesView from './StudentView/Views/Resources/ResourcesView'
@@ -61,6 +62,24 @@ console.log(user);
     }
   }
 
+  // register a new user
+  async function register(email, username, password, isStaff) {
+    let myresponse = await Api.newUser(
+      email,
+      username,
+      password,
+      isStaff
+    );
+    if (myresponse.ok) {
+      // browser popup saying you've been registered
+      alert("You have been registered!");
+      //  log them in automatically
+      await doLogin(username, password);
+    } else {
+      setLoginErrorMsg("Registration failed");
+    }
+  }
+
   // function setGroupId() {
   //   if (user.isStaff) {
   //     setGroupId(1)
@@ -93,7 +112,11 @@ console.log(user);
                   />
                 } 
               />
-        <Route
+      <Route
+              path="/register"
+              element={<RegisterView registerCb={register} />}
+            />
+      <Route
               path="/chat" // channelname (ChatView row 50)
               element={
                 <ChatView
@@ -105,9 +128,9 @@ console.log(user);
                 />
               }
             />
-        <Route path="notes" element={<NotesView/>} />
-        <Route path="reflection" element={<ReflectionView />} />
-        <Route path="resources" element={<ResourcesView/>} />
+        <Route path="/notes" element={<NotesView/>} />
+        <Route path="/reflection" element={<ReflectionView />} />
+        <Route path="/resources" element={<ResourcesView/>} />
 
         {user && user.isStaff ? 
         <Route 

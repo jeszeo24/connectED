@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import "./LoginView.css";
 
 
 function LoginView(props) {
@@ -62,9 +64,14 @@ function LoginView(props) {
                         </label>
                     </div>
 
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">Login</button>
                 </form>
             </div>
+            <nav className="LoginViewRegisterNav">
+        <Link className="LoginViewRegister" to="/register">
+          Don't have an account yet? Register here
+        </Link>
+      </nav>
         </div>
     );
 
