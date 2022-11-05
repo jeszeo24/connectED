@@ -25,7 +25,7 @@ function App() {
   const [isStudent, setIsStudent] = useState (true);
   const [user, setUser] = useState(Local.getUser()); // sets logged in user
   const [senderId, setSenderId] = useState(1);
-  const [groupId, setGroupId] = useState(2);
+  const [groupId, setGroupId] = useState(3);
   const [loginErrorMsg, setLoginErrorMsg] = useState('');
   const [error, setError] = useState("");
   const [users, setUsers] = useState([]); // lists of users
@@ -41,8 +41,6 @@ function App() {
         Local.saveUserInfo(myresponse.data.token, myresponse.data.user);
         setUser(myresponse.data.user);
         setLoginErrorMsg('');
-        // setIsStudent(user.isStaff ? 2 : 1);
-        // console.log(isStudent);
         navigate('/');
     } else {
         setLoginErrorMsg('Login failed');
@@ -96,13 +94,26 @@ console.log(user);
     }
   }
 
-  function goToChatView(id) {
-    navigate(`/${id}/chat`);
-  }
+  // function handleChange(event) {
+  //   let { name, value } = event.target;
+  //   if (name === 'senderId') {
+  //       setSenderId( Number(value) );
+  //   } else {
+  //       setGroupId( Number(value) );
+  //   }
+  // }
 
-  // const handleChangeView = (isStudent) => {
-  //   setIsStudent(isStudent);
-  // };
+   useEffect(() => {
+    setGroup();
+  }, []);
+
+  function setGroup() {
+    if (user.isStaff = true) {
+      setGroupId(1);
+    } else {
+      setGroupId(2);
+    }
+  }
 
   return (
     <div className="App">
@@ -133,8 +144,8 @@ console.log(user);
               path="/chat" // channelname (ChatView row 50)
               element={
                 <ChatView
-                  senderId={senderId}
-                  setSenderIdCb={setSenderId}
+                  senderId={Number(Local.getUserId())}
+                  // setSenderGroupCb={setSenderGroup}
                   groupId={groupId}
                   user={user}
                   users={users}
@@ -161,19 +172,39 @@ console.log(user);
               path="/" 
               element={
                   <PrivateRoute>
-                      <StudentView
-                      senderId={senderId}
-                      setSenderIdCb={setSenderId}
-                      groupId={groupId}
-                      user={user}
-                      users={users}
+                      <HomeView // formerly StudentView (but now defunct because unable to nest components within)
+                      // senderId={senderId}
+                      // setSenderGroupCb={setSenderGroup}
+                      // groupId={groupId}
+                      // user={user}
+                      // users={users}
                       /> 
                   </PrivateRoute>
                   } />
           }
       </Routes>
+
+      {/* <h1 className="text-center my-4">Chat.</h1>
+
+            <div className="d-flex justify-content-between mb-1">
+                <select name="groupId" value={groupId} onChange={handleChange}>
+                    <option value="1">Maria</option>
+                    <option value="2">Raul</option>
+                    <option value="3">Ana</option>
+                    <option value="4">Sam</option>
+                </select>
+
+                <select name="senderId" value={senderId} onChange={handleChange}>
+                    <option value="1">Maria</option>
+                    <option value="2">Raul</option>
+                    <option value="3">Ana</option>
+                    <option value="4">Sam</option>
+                </select>
+            </div>
+
+            <ChatView senderId={senderId} groupId={groupId} /> */}
     
-    </div>
+    </div> 
     
     </div> 
   );

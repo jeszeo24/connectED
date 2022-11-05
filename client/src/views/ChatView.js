@@ -56,6 +56,7 @@ function ChatView(props) {
         let channel = pusherRef.current.subscribe(channelName);
 
         // Listen for messages broadcast on channel
+        // bind: anytime there is activity on the channel, add to msg
         channel.bind("message", function (msg) {
             setMessages(messages => [...messages, msg]);
         });

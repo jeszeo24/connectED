@@ -54,7 +54,7 @@ router.post("/:groupId/:senderId", async function (req, res) {
             SELECT LAST_INSERT_ID() 
         `;
         let results = await db(sql);
-        let completeMsgId = results.data[0].insertId; // insertId comes from sql SELECT LAST_INSERT_ID()
+        let completeMsgId = results.data[0].insertId; // insertId comes from sql SELECT LAST_INSERT_ID() / special property of data
         // Return "complete" message (with ID and date/time)
         results = await db(`SELECT * FROM messages WHERE id = ${completeMsgId}`);
         completeMsg = results.data[0];

@@ -20,7 +20,6 @@ function formatDT(dt) {
 }
 
 console.log(props.messages) // NOTE: senderId is ALWAYS 1
-console.log(props.user.id)
 
 return (
     <div className="ChatList" ref={listDiv}>
