@@ -30,7 +30,6 @@ function RegisterView(props) {
   }
 
   function handleSubmit(event) {
-    console.log("isStaff", formData.isStaff);
     event.preventDefault();
 
     let isStaff;

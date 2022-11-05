@@ -8,6 +8,7 @@ import ChatInput from "../components/ChatInput";
 import Navbar from '../StudentView/Navbar'
 import WeatherView from '../StudentView/Weather/WeatherView'
 import NewsView from '../StudentView/News/NewsView'
+import "./ChatView.css";
 
 function ChatView(props) {
     const [messages, setMessages] = useState([]);
