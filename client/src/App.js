@@ -25,7 +25,7 @@ function App() {
   const [isStudent, setIsStudent] = useState (true);
   const [user, setUser] = useState(Local.getUser()); // sets logged in user
   const [senderId, setSenderId] = useState(1);
-  const [groupId, setGroupId] = useState(3);
+  const [groupId, setGroupId] = useState();
   const [loginErrorMsg, setLoginErrorMsg] = useState('');
   const [error, setError] = useState("");
   const [users, setUsers] = useState([]); // lists of users
@@ -108,7 +108,7 @@ console.log(user);
   }, []);
 
   function setGroup() {
-    if (user.isStaff = true) {
+    if (user.isStaff === true) {
       setGroupId(1);
     } else {
       setGroupId(2);
