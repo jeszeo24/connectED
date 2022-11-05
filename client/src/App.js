@@ -94,15 +94,6 @@ console.log(user);
     }
   }
 
-  // function handleChange(event) {
-  //   let { name, value } = event.target;
-  //   if (name === 'senderId') {
-  //       setSenderId( Number(value) );
-  //   } else {
-  //       setGroupId( Number(value) );
-  //   }
-  // }
-
    useEffect(() => {
     setGroup();
   }, []);
@@ -145,7 +136,6 @@ console.log(user);
               element={
                 <ChatView
                   senderId={Number(Local.getUserId())}
-                  // setSenderGroupCb={setSenderGroup}
                   groupId={groupId}
                   user={user}
                   users={users}

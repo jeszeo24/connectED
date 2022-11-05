@@ -9,25 +9,43 @@ function RegisterView(props) {
   };
 
   const [formData, setFormData] = useState(emptyForm); // useState 1
-
+  
   function handleChange(event) {
     let { name, value } = event.target;
 
-    console.log(formData.checked);
+    setFormData((data) => ({
+      ...data,
+      [name]: value
+    }));
+  }
+
+  function handleChangeCheck(event) {
+    let checkbox = event.target.checked;
+    console.log(checkbox);
 
     setFormData((data) => ({
       ...data,
-      [name]: value,
+      [event.target.name]: checkbox
     }));
   }
 
   function handleSubmit(event) {
+    console.log("isStaff", formData.isStaff);
     event.preventDefault();
+
+    let isStaff;
+
+    if (formData.isStaff === true) {
+      isStaff = 1; 
+    } else {
+      isStaff = 0;
+    }
+
     props.registerCb(
       formData.email,
       formData.username,
       formData.password,
-      formData.isStaff
+      isStaff
     );
   }
 
@@ -81,7 +99,7 @@ function RegisterView(props) {
             // className="form-control"
             value={formData.isStaff}
             type="checkbox"
-            onChange={handleChange}
+            onChange={handleChangeCheck}
           />
         </label>
         <br />

@@ -13,15 +13,15 @@ const db = require("../model/helper")
  **/
 
 router.post('/register', async (req, res) => {
-    let { username, password, email } = req.body;
+    let { username, password, email, isStaff } = req.body;
     let hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR); // WORK_FACTOR: how secure and how long it will take to load (smaller value, means runs faster)
     // bcrypt returns a string about 200 characters long
 
     try {
         // store hashed password in database
         let sql = `
-            INSERT INTO users (username, password, email)
-            VALUES ("${username}", "${hashedPassword}", "${email}")
+            INSERT INTO users (username, password, email, isStaff)
+            VALUES ("${username}", "${hashedPassword}", "${email}", "${isStaff}")
             `;
         await db(sql);
         res.send({ message: "Registration succeeded" });
