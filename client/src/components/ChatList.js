@@ -34,6 +34,7 @@ return (
 
               <div key={m.id} className="receiver">
                 <span title={formatDT(m.dateTime)}>{m.text}</span>
+                {/* <small>{props.user.username}</small> */}
               </div>
           )}
         </div>
