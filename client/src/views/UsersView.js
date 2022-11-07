@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import Api from '../helpers/Api';
 import "./UsersView.css";
+import { Link } from "react-router-dom";
+import { __esModule } from 'react-modal';
 
 
 function UsersView(props) {
@@ -40,8 +42,11 @@ function UsersView(props) {
             <h1>Staff</h1>
             <ul>
             {
-                users.map(u => 
-                <li key={u.id}>{u.isStaff ? u.username : null}</li>)
+                users.map(u => (
+                <li key={u.id}>
+                    <Link to={"/users/"+u.id}>{u.isStaff ? u.username : null}</Link>
+                    </li>
+                ))
             }
             </ul>
             </div>
@@ -50,8 +55,11 @@ function UsersView(props) {
             <h1>Students</h1>
             <ul>
             {
-                users.map(u => 
-                <li key={u.id}>{u.isStaff ? null : u.username}</li>)
+                users.map(u => (
+                <li key={u.id}>
+                    <Link to={"/users/"+u.id}>{u.isStaff ? null : u.username}</Link>
+                    </li>
+                ))
             }
                 
             </ul>

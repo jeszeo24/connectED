@@ -14,6 +14,7 @@ const db = require("../model/helper")
 
 router.post('/register', async (req, res) => {
     let { username, password, email, isStaff } = req.body;
+    // NOTE: bcrypt used to encrypt password when user registers
     let hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR); // WORK_FACTOR: how secure and how long it will take to load (smaller value, means runs faster)
     // bcrypt returns a string about 200 characters long
 
@@ -45,9 +46,11 @@ router.post("/login", async (req, res) => {
             res.status(401).send({ error: "Login failed "});
         } else {
             let user = results.data[0]; // the user's row/record from the DB
+            // NOTE: When user attempts to log in, bcrypt compares password to hashed password
             let passwordsEqual = await bcrypt.compare(password, user.password);
             if (passwordsEqual) {
                 // Passwords match
+                // NOTE: If passwords match, create payload (which will be returned from client to server, everytime client makes a request)
                 let payload = { userId: user.id };
                 // Create token containing user ID
                 let token = jwt.sign(payload, SECRET_KEY); // Generate the JWT using the secret key

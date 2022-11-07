@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import Navbar from '../StudentView/Navbar'
+import Navbar from '../StudentView/NavbarStudent'
 import './StudentView.css'
 
 import HomeView from '../StudentView/Views/Home/HomeView'

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './NotesView.css'
-import Navbar from '../../../StudentView/Navbar'
+import NavbarStudent from '../../NavbarStudent'
 import WeatherView from '../../../StudentView/Weather/WeatherView'
 import NewsView from '../../../StudentView/News/NewsView'
 import { useNavigate } from 'react-router-dom'
@@ -50,7 +50,7 @@ import { useNavigate } from 'react-router-dom'
   }
   return (
     <div className='NotesView'>
-      <Navbar />
+      <NavbarStudent />
     <div className='notes-lay'>
     <form className='notes-lay1'onSubmit={handleSubmit}>
        <label className='date'>

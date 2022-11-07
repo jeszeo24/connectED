@@ -5,7 +5,7 @@ import Pusher from "pusher-js";
 import axios from "axios";
 import ChatList from "../components/ChatList";
 import ChatInput from "../components/ChatInput";
-import Navbar from '../StudentView/Navbar'
+import NavbarStudent from '../StudentView/NavbarStudent'
 import WeatherView from '../StudentView/Weather/WeatherView'
 import NewsView from '../StudentView/News/NewsView'
 import "./ChatView.css";
@@ -144,7 +144,7 @@ function ChatView(props) {
 
     return (
         <div>
-            {props.user.isStaff ?  <NavbarStaff /> : <Navbar />}
+            {props.user.isStaff ?  <NavbarStaff /> : <NavbarStudent />}
 
         <div className="ChatView">
             

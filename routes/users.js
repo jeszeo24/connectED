@@ -27,6 +27,7 @@ router.get("/", async function(req, res, next) {
  * A user can only see his/her own profile info.
  **/
 
+// ensureSameUser function in middleware guards.js
 router.get("/:userId", ensureSameUser, async function(req, res, next) {
     let { userId } = req.params;
     let sql = "SELECT * FROM users WHERE id = " + userId;

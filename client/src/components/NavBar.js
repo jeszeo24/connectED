@@ -20,9 +20,7 @@ function NavBar(props) {
                             {/* Added end so multiple NavLink buttons not highlighted at the same time*/}
                             <NavLink className="nav-link" to="/" end>Home</NavLink>
                         </li>
-                        {/* <li className="nav-item">
-                            <NavLink className="nav-link" to="/users">Users</NavLink>
-                        </li> */}
+                
                         {/* Only show "Users" if user is logged in */}
                         {
                             props.user && (
@@ -41,7 +39,8 @@ function NavBar(props) {
                             (
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <NavLink className="nav-link" to={`/users/${props.user.id}`}>Profile ({props.user.username})</NavLink>
+                                        {/* props.user passed from parent App */}
+                                        <NavLink className="nav-link" to={`/users/${props.user.id}`}>Profile ({props.user.username})</NavLink> 
                                     </li>
                                     <li className="nav-item">
                                         {/* Log out user. Then go to home page. */}

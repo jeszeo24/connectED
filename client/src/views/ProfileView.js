@@ -1,7 +1,7 @@
 // Source from Jim's AuthAuth demo
 
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Api from '../helpers/Api';
 
 
@@ -39,7 +39,10 @@ function ProfileView(props) {
             <h1>Profile View</h1>
             ID: {user.id}<br />
             Username: {user.username}<br />
-            Email: {user.email}
+            Email: {user.email}<br />
+            <br />
+            <Link to={"/users"} className="btn btn-primary">return</Link>
+
         </div>
     );
 }

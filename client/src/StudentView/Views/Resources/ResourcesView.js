@@ -1,6 +1,6 @@
 import React, { useState} from 'react'
 import './ResourcesView.css'
-import Navbar from '../../../StudentView/Navbar'
+import NavbarStudent from '../../NavbarStudent'
 import WeatherView from '../../../StudentView/Weather/WeatherView'
 import NewsView from '../../../StudentView/News/NewsView'
 
@@ -8,7 +8,7 @@ import NewsView from '../../../StudentView/News/NewsView'
 function ResourcesView() {
   return (
     <div>
-      <Navbar />
+      <NavbarStudent />
 
     <div className='res-lay'>
 

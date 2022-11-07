@@ -5,3 +5,13 @@
 .UsersView ul {
     display: inline-block;
 }
+
+.UsersView a {
+    color: black;
+}
+
+.UsersView a:hover {
+    box-shadow: inset 500px 0 0 0 #f9e84a;
+    width: 500px;
+    transition: ease-out 0.4s;
+}

@@ -1,7 +1,7 @@
 // import { text } from 'express';
 import React, { useState } from 'react'
 import './ReflectionView.css';
-import Navbar from '../../../StudentView/Navbar'
+import NavbarStudent from '../../NavbarStudent'
 import WeatherView from '../../../StudentView/Weather/WeatherView'
 import NewsView from '../../../StudentView/News/NewsView'
 
@@ -54,7 +54,7 @@ function ReflectionView(props) {
 
   return (
     <div>
-      <Navbar />
+      <NavbarStudent />
     <form className='reflectionForm' onSubmit={handleSubmit}>
       <label className='date'>
         Date

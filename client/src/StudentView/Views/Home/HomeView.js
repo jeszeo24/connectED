@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './HomeView.css'
 import NoteList from '../Notes/NoteList'
-import Navbar from '../../../StudentView/Navbar'
+import NavbarStudent from '../../NavbarStudent'
 import WeatherView from '../../../StudentView/Weather/WeatherView'
 import NewsView from '../../../StudentView/News/NewsView'
 
@@ -50,7 +50,7 @@ function HomeView(props) {
 
   return (
     <div className='StudentView'>
-        <Navbar />
+        <NavbarStudent />
       <div className='note-view'>
         <NoteList 
             note1={note}

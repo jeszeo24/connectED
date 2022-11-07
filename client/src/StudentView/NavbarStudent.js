@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import './Navbar.css'
+import './NavbarStudent.css'
 
 
-function Navbar(props) {
+function NavbarStudent(props) {
   return (
     <div>
     <nav className='Navbar'>
@@ -20,4 +20,4 @@ function Navbar(props) {
   )
 }
 
-export default Navbar
+export default NavbarStudent;
