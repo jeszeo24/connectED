@@ -1,3 +1,5 @@
+// Source from Jim's AuthAuth demo
+
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import "./LoginView.css";
@@ -29,7 +31,7 @@ function LoginView(props) {
     return (
         <div className="LoginView row">
             <div className="col-4 offset-4">
-                <h2>Login</h2>
+                <h1>Login</h1>
                 
                 {
                     props.loginError && (

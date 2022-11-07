@@ -31,11 +31,12 @@ function App() {
   const [loginErrorMsg, setLoginErrorMsg] = useState('');
   const [error, setError] = useState("");
   const [users, setUsers] = useState([]); // lists of users
+  const [reflection, setReflection] = useState([]);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   fetchUsers();
-  // }, []);
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   async function doLogin(username, password) {
     let myresponse = await Api.loginUser(username, password);
@@ -84,29 +85,56 @@ console.log(user);
     }
   }
 
-   // get group by id
-  //  async function getGroup(id) {
-  //   let myresponse = await Api.getGroup(id);
-  //   if (myresponse.ok) {
-  //     setGroupId(myresponse.data.id);
-  //     //navigate to trip/id page after
-  //     navigate(`/group/${id}`);
+   // get group chat by id
+   async function getGroupChat(id) {
+    let myresponse = await Api.getGroupChat(id);
+    if (myresponse.ok) {
+      setGroupId(myresponse.data.groupId);
+      //navigate to chat/id page after
+      navigate(`/chat/${id}`);
+    } else {
+      setError(myresponse.error);
+    }
+  }
+
+  // NOTE: Setting Group as below does NOT work
+  //  useEffect(() => {
+  //   setGroup();
+  // }, []);
+
+  // function setGroup() {
+  //   if (user.isStaff === true) {
+  //     setGroupId(1);
   //   } else {
-  //     setError(myresponse.error);
+  //     setGroupId(2);
   //   }
   // }
 
-   useEffect(() => {
-    setGroup();
-  }, []);
+  // console.log(groupId)
 
-  function setGroup() {
-    if (user.isStaff === true) {
-      setGroupId(1);
-    } else {
-      setGroupId(2);
+  // // navigates to chat for selected tri
+  // function goToChatView(id) {
+  //   navigate(`/chat/${id}`);
+  // }
+
+  useEffect(() => {
+    getReflection();  
+}, []);
+
+async function getReflection() {
+    try {
+        let response = await fetch('/reflection');  
+        if (response.ok) {
+            let result = await response.json();
+            setReflection(result);
+        } else {
+            console.log(`Server error: ${response.status} ${response.statusText}`);
+        }
+    } catch (err) {
+        console.log(`Server error: ${err.message}`);
     }
-  }
+}
+
 
   return (
     <div className="App">
@@ -135,11 +163,22 @@ console.log(user);
               element={<RegisterView registerCb={register} />}
             />
       <Route
-              path="/chat" // channelname (ChatView row 50)
+              path="/chat/:groupId" // channelname (ChatView row 50)
               element={
                 <ChatView
                   senderId={Number(Local.getUserId())}
-                  groupId={groupId}
+                  groupId={2}
+                  user={user}
+                  users={users}
+                />
+              }
+            />
+        <Route
+              path="/staff-chat/:groupId" // channelname (ChatView row 50)
+              element={
+                <ChatView
+                  senderId={Number(Local.getUserId())}
+                  groupId={1}
                   user={user}
                   users={users}
                 />
@@ -156,7 +195,9 @@ console.log(user);
         <Route path="/reflection" element={<ReflectionView />} />
         <Route path="/resources" element={<ResourcesView/>} />
 
-        {/* <Route path="/staff-Reflection" element={<ReflectionList/>} /> */}
+        <Route path="/teacher-view" element={<TeacherView/>} />
+  
+        <Route path="/staff-reflection" element={<ReflectionList reflection1={reflection}/>} />
   
 
         {user && user.isStaff ? 
@@ -164,14 +205,15 @@ console.log(user);
               path="/" 
               element={
                 <PrivateRoute>
-                    <TeacherView/> 
+                    {/* <TeacherView />  // formerly TeacherView (but now defunct because was unable to nest components within)*/} 
+                    <ReflectionList reflection1={reflection}/> 
                 </PrivateRoute>
                 } /> : 
         <Route 
               path="/" 
               element={
                   <PrivateRoute>
-                      <HomeView // formerly StudentView (but now defunct because unable to nest components within)
+                      <HomeView // formerly StudentView (but now defunct because was unable to nest components within)
                       // senderId={senderId}
                       // setSenderGroupCb={setSenderGroup}
                       // groupId={groupId}

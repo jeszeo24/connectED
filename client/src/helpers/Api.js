@@ -89,8 +89,8 @@ class Api {
     }
 
     // Get a group by id?
-    static async getGroup(id) {
-    return await this._doFetch(`/group/${id}`);
+    static async getGroupChat(groupId) {
+    return await this._doFetch(`/chat/${groupId}`);
   }
 
 }

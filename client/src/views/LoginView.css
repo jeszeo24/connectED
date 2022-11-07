@@ -1,8 +1,17 @@
+
 .LoginViewRegisterNav {
     margin-top: 2em;
 }
 
+input {
+    margin-top: 0em;
+    margin-bottom: 1.5em;
+}
+
 .LoginViewRegister {
-    margin-top: 2em;
     color: black;
+}
+
+.LoginViewRegister:hover {
+    color:blue;
 }

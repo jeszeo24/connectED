@@ -35,3 +35,7 @@
     background-color: lightgreen;
 }
 
+.ChatList .receiver .receivername {
+    display: inline-flex;
+    margin-left: 1em;
+}

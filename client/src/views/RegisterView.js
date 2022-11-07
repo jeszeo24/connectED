@@ -49,7 +49,7 @@ function RegisterView(props) {
   }
 
   return (
-    <div>
+    <div className="RegisterView">
       <h1>Register</h1>
       <form
         className="form-control form-row align-items-center"

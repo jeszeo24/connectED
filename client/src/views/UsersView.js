@@ -2,10 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import Api from '../helpers/Api';
+import "./UsersView.css";
 
 
 function UsersView(props) {
     const [users, setUsers] = useState([]);
+    const [isStaff, setIsStaff] = useState([]);
     const [errorMsg, setErrorMsg] = useState('');
 
     useEffect(() => {
@@ -33,12 +35,28 @@ function UsersView(props) {
 
     return (
         <div className="UsersView">
-            <h1>Users</h1>
+            <div className='row'>
+            <div className='col-sm-6'>
+            <h1>Staff</h1>
             <ul>
             {
-                users.map(u => <li key={u.id}>{u.username}</li>)
+                users.map(u => 
+                <li key={u.id}>{u.isStaff ? u.username : null}</li>)
             }
             </ul>
+            </div>
+
+            <div className='col-sm-6'>
+            <h1>Students</h1>
+            <ul>
+            {
+                users.map(u => 
+                <li key={u.id}>{u.isStaff ? null : u.username}</li>)
+            }
+                
+            </ul>
+            </div>
+            </div>
         </div>
     );
 }

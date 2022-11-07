@@ -1,6 +1,7 @@
 .ChatView {
-    width: 60%;
+    width: 57%;
     height: auto;
     float: right;
     border: solid;
+    margin-right: 1em;
 }

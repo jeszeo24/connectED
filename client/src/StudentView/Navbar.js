@@ -13,7 +13,7 @@ function Navbar(props) {
             <li><NavLink to ="/notes">Notes</NavLink></li>
             <li><NavLink to ="/reflection">Reflection</NavLink></li>
             <li><NavLink to ="/resources">Resources</NavLink></li>
-            <li><NavLink to ="/chat">Chat</NavLink></li>
+            <li><NavLink to ="/chat/2">Chat</NavLink></li>
         </ul>
     </nav>
     </div>

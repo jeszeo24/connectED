@@ -8,9 +8,9 @@ function NavbarStaff(props) {
     <div>
     <nav className='NavbarStaff'>
         <ul>
-            <li><NavLink to ="/staff-Home"> Home</NavLink></li>
-            <li><NavLink to ="/staff-Reflection">Reflection</NavLink></li>
-            <li><NavLink to ="/staff-Chat">Chat</NavLink></li>
+            {/* <li><NavLink to ="/staff-Home"> Home</NavLink></li> */}
+            <li><NavLink to ="/staff-reflection">Reflection</NavLink></li>
+            <li><NavLink to ="/staff-chat/1">Chat</NavLink></li>
         </ul>
     </nav>
     </div>

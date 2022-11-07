@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './ReflectionList.css'
 import ReactModal from 'react-modal';
+import NavbarStaff from '../../../components/NavBarStaff'
 
 ReactModal.setAppElement("#root")
 
@@ -14,6 +15,7 @@ function ReflectionList(props) {
 
   return (
     <div>
+      <NavbarStaff />
     <ul className='ref-lay'>
         { props.reflection1.map(r => (
             <li className='ref-list'

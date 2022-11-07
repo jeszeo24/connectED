@@ -20,14 +20,14 @@ function NavBar(props) {
                             {/* Added end so multiple NavLink buttons not highlighted at the same time*/}
                             <NavLink className="nav-link" to="/" end>Home</NavLink>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink className="nav-link" to="/users">Users</NavLink>
-                        </li>
-                        {/* Only show "Members Only" if user is logged in */}
+                        </li> */}
+                        {/* Only show "Users" if user is logged in */}
                         {
                             props.user && (
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/members-only">Members Only</NavLink>
+                                    <NavLink className="nav-link" to="/users">Users</NavLink>
                                 </li>
                             )
                         }

@@ -9,6 +9,7 @@ import Navbar from '../StudentView/Navbar'
 import WeatherView from '../StudentView/Weather/WeatherView'
 import NewsView from '../StudentView/News/NewsView'
 import "./ChatView.css";
+import NavbarStaff from "../components/NavBarStaff";
 
 function ChatView(props) {
     const [messages, setMessages] = useState([]);
@@ -143,7 +144,7 @@ function ChatView(props) {
 
     return (
         <div>
-            <Navbar />
+            {props.user.isStaff ?  <NavbarStaff /> : <Navbar />}
 
         <div className="ChatView">
             

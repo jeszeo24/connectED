@@ -1,5 +1,8 @@
 .ChatInput input {
     background-color: lightblue;
     text-align: right;
+    margin-bottom: 0em;
+    border-color: black;
+    border-radius: 0;
 }
 
