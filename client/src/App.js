@@ -20,6 +20,8 @@ import ReflectionList from "./StudentView/Views/Reflection/ReflectionList";
 import ResourcesView from './StudentView/Views/Resources/ResourcesView'
 import WeatherView from './StudentView/Weather/WeatherView'
 import NewsView from './StudentView/News/NewsView'
+import UsersView from "./views/UsersView";
+import ProfileView from "./views/ProfileView";
 
 function App() {
   const [isStudent, setIsStudent] = useState (true);
@@ -83,16 +85,16 @@ console.log(user);
   }
 
    // get group by id
-   async function getGroup(id) {
-    let myresponse = await Api.getGroup(id);
-    if (myresponse.ok) {
-      setGroupId(myresponse.data.id);
-      //navigate to trip/id page after
-      navigate(`/group/${id}`);
-    } else {
-      setError(myresponse.error);
-    }
-  }
+  //  async function getGroup(id) {
+  //   let myresponse = await Api.getGroup(id);
+  //   if (myresponse.ok) {
+  //     setGroupId(myresponse.data.id);
+  //     //navigate to trip/id page after
+  //     navigate(`/group/${id}`);
+  //   } else {
+  //     setError(myresponse.error);
+  //   }
+  // }
 
    useEffect(() => {
     setGroup();
@@ -143,6 +145,12 @@ console.log(user);
                 />
               }
             />
+        <Route path="/users" element={<UsersView />} /> 
+        <Route path="/users/:userId" element={
+                        <PrivateRoute>
+                            <ProfileView />
+                        </PrivateRoute>
+                    } />
         <Route path="/home" element={<HomeView />} /> 
         <Route path="/notes" element={<NotesView/>} />
         <Route path="/reflection" element={<ReflectionView />} />

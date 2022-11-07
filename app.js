@@ -31,7 +31,7 @@ app.use('/note', noteRouter)
 // use chatRouter
 app.use('/chat', chatRouter)
 // use usersRouter
-app.use('/', usersRouter); 
+app.use('/users', usersRouter); 
 // use authRouter
 app.use('/', authRouter); 
 

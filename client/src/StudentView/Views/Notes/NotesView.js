@@ -3,6 +3,7 @@ import './NotesView.css'
 import Navbar from '../../../StudentView/Navbar'
 import WeatherView from '../../../StudentView/Weather/WeatherView'
 import NewsView from '../../../StudentView/News/NewsView'
+import { useNavigate } from 'react-router-dom'
 
 
   const EMPTY_NOTE ={
@@ -13,6 +14,7 @@ import NewsView from '../../../StudentView/News/NewsView'
   };
   function NotesView(props) {
     const [noteData, setNoteData] = useState(EMPTY_NOTE);
+    const navigate = useNavigate();
     
     function handleSubmit (e) {
       e.preventDefault();
@@ -26,6 +28,7 @@ import NewsView from '../../../StudentView/News/NewsView'
     }
   
     async function addNote(note) {
+
       let options = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -37,6 +40,7 @@ import NewsView from '../../../StudentView/News/NewsView'
           if (response.ok) {
               let result = await response.json();
               setNoteData(result);
+              navigate("/home");
           } else {
               console.log(`Server error: ${response.status} ${response.statusText}`);
           }

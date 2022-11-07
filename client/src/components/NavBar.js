@@ -17,7 +17,8 @@ function NavBar(props) {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/">Home</NavLink>
+                            {/* Added end so multiple NavLink buttons not highlighted at the same time*/}
+                            <NavLink className="nav-link" to="/" end>Home</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/users">Users</NavLink>

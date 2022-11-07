@@ -8,6 +8,7 @@ function Navbar(props) {
     <div>
     <nav className='Navbar'>
         <ul>
+          {/* <NavLink> is a special kind of <Link> that knows whether or not it is "active" */}
             <li><NavLink to ="/home"> Home</NavLink></li>
             <li><NavLink to ="/notes">Notes</NavLink></li>
             <li><NavLink to ="/reflection">Reflection</NavLink></li>
