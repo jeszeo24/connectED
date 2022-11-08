@@ -4,6 +4,7 @@ import NoteList from '../Notes/NoteList'
 import NavbarStudent from '../../NavbarStudent'
 import WeatherView from '../../../StudentView/Weather/WeatherView'
 import NewsView from '../../../StudentView/News/NewsView'
+import Local from '../../../helpers/Local'
 
 function HomeView(props) {
   const [note, setNote] = useState([]);
@@ -14,8 +15,11 @@ function HomeView(props) {
   }, []);
 
   async function getNote() {
+    let id = Local.getUserId(); // getting userId from Local Storage
+
       try {
-          let response = await fetch('/note');  
+          let response = await fetch(`/note/${id}`);  // sets the note, just relevant notes to user
+          console.log(response);
           if (response.ok) {
               let result = await response.json();
               setNote(result);

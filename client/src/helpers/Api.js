@@ -2,6 +2,7 @@
 
 import Local from "./Local";
 
+
 /**
  * This is a helper class that places all "knowledge" about doing a fetch() in one place. 
  * Any component that needs to do a fetch() will import this class and call the corresponding method.
@@ -23,6 +24,7 @@ class Api {
 
       static async _doFetch(url, method = 'GET', body = null) {
         // Prepare fetch() options
+        // What you see in the payload, is the options below
         let options = { 
             method,
             headers: {}
@@ -44,6 +46,7 @@ class Api {
         let myresponse = { ok: false, data: null, status: 0, error: '' };
         try {
             let response = await fetch(url, options);
+            console.log(options);
             if (response.ok) {
                 myresponse.ok = true;
                 myresponse.data = await response.json();
@@ -91,6 +94,11 @@ class Api {
     // Get a group by id?
     static async getGroupChat(groupId) {
     return await this._doFetch(`/chat/${groupId}`);
+  }
+
+  // Add Note
+  static async addNote(note) {
+      return await this._doFetch("/note", "POST", note)
   }
 
 }

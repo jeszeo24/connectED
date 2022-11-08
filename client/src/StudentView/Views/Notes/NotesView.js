@@ -4,6 +4,8 @@ import NavbarStudent from '../../NavbarStudent'
 import WeatherView from '../../../StudentView/Weather/WeatherView'
 import NewsView from '../../../StudentView/News/NewsView'
 import { useNavigate } from 'react-router-dom'
+import Api from "../../../helpers/Api"
+import Local from "../../../helpers/Local"
 
 
   const EMPTY_NOTE ={
@@ -29,17 +31,21 @@ import { useNavigate } from 'react-router-dom'
   
     async function addNote(note) {
 
-      let options = {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(note)
-      };
-  
+      // NOTE: CREATED fetch in API instead
+
+      // let options = {
+      //     method: 'POST',
+      //     headers: { 'Content-Type': 'application/json' },
+      //     body: JSON.stringify(note)
+      // };
+
       try {
-          let response = await fetch('/note', options);  
+          // let response = await fetch('/note', options);
+          let response = await Api.addNote(note);
+          console.log(response);
           if (response.ok) {
-              let result = await response.json();
-              setNoteData(result);
+              // let result = await response.json();
+              setNoteData(response.data);
               navigate("/home");
           } else {
               console.log(`Server error: ${response.status} ${response.statusText}`);

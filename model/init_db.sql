@@ -4,6 +4,22 @@ DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS messages;
 DROP TABLE IF EXISTS users;
 
+-- FOR USERS.JS
+CREATE TABLE users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(30) NOT NULL UNIQUE,
+    password VARCHAR(200) NOT NULL,
+    isStaff BOOLEAN NOT NULL DEFAULT 0,
+    email VARCHAR(200) NOT NULL
+);
+
+-- user1 has password pass1 (etc)
+INSERT INTO users (username, password, isStaff, email)
+VALUES 
+    ('user1','$2b$12$eFzMWbS9SogNtxkmo3J7aO8FQMFQSKbtpwLMIOVsF6GGKpTQdgq.W', 0, 'user1@acme.com'),
+    ('user2','$2b$12$WZcGPyrkCvD5e8m0Qz/nFOdBryUcsp6uDlE2MDo/AjuBhPrQBCfI6', 1, 'user2@acme.com'),
+    ('user3','$2b$12$tiAz4eaXlpU.CdltUVvw6udLA2BWsitk5zXM2XOm2IpAeAiFfMCdy', 0, 'user3@acme.com');
+
 CREATE TABLE reflection (
  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
  refDate DATE,
@@ -23,13 +39,14 @@ CREATE TABLE notes (
  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
  noteDate DATE,
  title MEDIUMTEXT,
- note LONGTEXT
---  FOREIGN KEY (user_id) REFERENCES users(id) on DELETE CASCADE
+ note LONGTEXT,
+ user_id INT NOT NULL,
+ FOREIGN KEY (user_id) REFERENCES users(id) on DELETE CASCADE
  );
 
-INSERT INTO notes (noteDate, title, note)
-VALUES ('2022-09-03', 'Lorem Ipsum', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
-
+INSERT INTO notes (noteDate, title, note, user_id)
+VALUES ('2022-09-03', 'Lorem Ipsum', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 1),
+('2022-09-03', 'Lorem Ipsum', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 2);
 --  CREATE TABLE student (
 --      id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 --      firstname VARCHAR (100),
@@ -46,21 +63,7 @@ CREATE TABLE messages (
   dateTime DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- FOR USERS.JS
-CREATE TABLE users (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(30) NOT NULL UNIQUE,
-    password VARCHAR(200) NOT NULL,
-    isStaff BOOLEAN NOT NULL DEFAULT 0,
-    email VARCHAR(200) NOT NULL
-);
 
--- user1 has password pass1 (etc)
-INSERT INTO users (username, password, isStaff, email)
-VALUES 
-    ('user1','$2b$12$eFzMWbS9SogNtxkmo3J7aO8FQMFQSKbtpwLMIOVsF6GGKpTQdgq.W', 0, 'user1@acme.com'),
-    ('user2','$2b$12$WZcGPyrkCvD5e8m0Qz/nFOdBryUcsp6uDlE2MDo/AjuBhPrQBCfI6', 1, 'user2@acme.com'),
-    ('user3','$2b$12$tiAz4eaXlpU.CdltUVvw6udLA2BWsitk5zXM2XOm2IpAeAiFfMCdy', 0, 'user3@acme.com');
  
 
 

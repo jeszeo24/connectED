@@ -2,9 +2,13 @@ var express = require('express');
 var router = express.Router();
 const db = require("../model/helper");
 
-router.get('/', async function(req, res,) {
+router.get('/:user_id', async function(req, res,) { // id is user_id
+    // which is passed from front end fetch at HomeView
+    let id = req.params.user_id;
+
+    // NOTE: get method doesn't have a body, so id must be passed in link (req.params)
     try {
-      let results = await db('SELECT * FROM notes'); 
+      let results = await db(`SELECT * FROM notes WHERE user_id = ${Number(id)}`); 
       let note = results.data;  
       res.send(note);
   } catch (err) {
@@ -13,15 +17,16 @@ router.get('/', async function(req, res,) {
   });
   
   router.post("/", async (req, res) => {
-    let { noteDate, title, note  } = req.body;
+    let { noteDate, title, note, user_id  } = req.body;
+    console.log(req.body);
     let sql = `
-        INSERT INTO notes (noteDate, title, note)
-        VALUES ('${noteDate}', '${title}', '${note}')
+        INSERT INTO notes (noteDate, title, note, user_id)
+        VALUES ('${noteDate}', '${title}', '${note}', ${Number(user_id)})
     `;
   
     try {
         await db(sql);  
-        let result = await db('SELECT * FROM notes');
+        let result = await db(`SELECT * FROM notes WHERE user_id = ${Number(user_id)}`);
         let note = result.data;
         res.status(201).send(note); 
     } catch (err) {

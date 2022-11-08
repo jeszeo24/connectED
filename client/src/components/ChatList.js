@@ -18,8 +18,7 @@ function ChatList(props) {
     return new Date(dt).toLocaleString();
   }
 
-  console.log(props.messages); // NOTE: senderId is ALWAYS 1
-  // props.users ? console.log(props.users) : null;
+  console.log(props.messages); 
 
   return (
     <div className="ChatList" ref={listDiv}>

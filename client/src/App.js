@@ -108,7 +108,7 @@ function App() {
 
   // console.log(groupId)
 
-  // // navigates to chat for selected tri
+  // // navigates to chat for selected group
   // function goToChatView(id) {
   //   navigate(`/chat/${id}`);
   // }
