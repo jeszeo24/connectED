@@ -1,18 +1,18 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import logo from "../assets/connectED4_logo.png";
+import "./NavBar.css"
 
 
 function NavBar(props) {
     return (
         <nav className="Navbar navbar navbar-expand-sm navbar-dark mb-4" style={{ backgroundColor: 'teal' }}>
             <div className="container-fluid">
-                <span className="navbar-brand font-weight-bold">connectED</span>
-                {/* <img src="/assets/connectED_logo.png"></img> */}
+                <span className="brand"><img src={logo}/></span>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-
                 {/* Left-aligned stuff */}
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">

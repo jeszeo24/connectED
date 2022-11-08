@@ -20,7 +20,7 @@ import Local from "../../../helpers/Local"
     
     function handleSubmit (e) {
       e.preventDefault();
-      addNote (noteData);
+      addNote (noteData); // calls function on line 32
       setNoteData(EMPTY_NOTE);
     }
   
@@ -29,7 +29,7 @@ import Local from "../../../helpers/Local"
       setNoteData (data => ({...data, [name]: value}));
     }
   
-    async function addNote(note) {
+    async function addNote(noteData) { // expecting to receive noteData as params
 
       // NOTE: CREATED fetch in API instead
       
@@ -41,17 +41,17 @@ import Local from "../../../helpers/Local"
 
       // NOTE: From Api fetch functions, there is addNote(note) which does the POST as above
       let id = Local.getUserId();
-      note.user_id = id; // this updates the user_id within note object
-      console.log(note);
+      noteData.user_id = id; // this creates the user_id within noteData object
 
       try {
           // let response = await fetch('/note', options);
           // NOTE: The POST function with the noteDate, title, note, user_id object 
-          let response = await Api.addNote(note);
+          let response = await Api.addNote(noteData);
           console.log(response);
-          if (response.ok) {
-              // let result = await response.json();
-              setNoteData(response.data);
+          if (response.ok) { // backend will send an object called response, one of the properties is data
+            // if ok = truthy, then access data  
+            // let result = await response.json();
+              // setNoteData(response.data); // NOT NECESSARY
               navigate("/home");
           } else {
               console.log(`Server error: ${response.status} ${response.statusText}`);

@@ -17,8 +17,12 @@ function HomeView(props) {
   async function getNote() {
     let id = Local.getUserId(); // getting userId from Local Storage
 
+    // NOTE: GET method is automatic, if not specified
+
       try {
-          let response = await fetch(`/note/${id}`);  // sets the note, just relevant notes to user
+          let response = await fetch(`/note/${id}`);  // this is from the note route
+          // Fetch address used in the front end, must match the route in the backend provided 
+          // sets the note, just relevant notes to user
           console.log(response);
           if (response.ok) {
               let result = await response.json();
@@ -58,7 +62,7 @@ function HomeView(props) {
       <div className='note-view'>
         <NoteList 
             note1={note}
-            deleteNote1={deleteNote}/>
+            deleteNote1={(id) => deleteNote(id)}/> {/* NoteList passes the id to deleteNote function*/}
       </div>
 
       <div className='weather-box'>

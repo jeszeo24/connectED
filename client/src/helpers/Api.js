@@ -97,8 +97,14 @@ class Api {
   }
 
   // Add Note
-  static async addNote(note) {
+  // NOTE: function calls the back-end
+  // Backend says, call me at the addres "/note"
+  // Send me the info, and I will do the post
+  
+  static async addNote(note) { // the note here has to match the one below
+    // what you are expecting to receive
       return await this._doFetch("/note", "POST", note)
+      // what we're doing with what we received
   }
   // QUESTION: How does it know what properties are in the body/note?
 

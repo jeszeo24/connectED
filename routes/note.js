@@ -7,6 +7,7 @@ router.get('/:user_id', async function(req, res,) { // id is user_id
     let id = req.params.user_id;
 
     // NOTE: get method doesn't have a body, so id must be passed in link (req.params)
+    // Because you decided below that id would be user_id
     try {
       let results = await db(`SELECT * FROM notes WHERE user_id = ${Number(id)}`); 
       let note = results.data;  
@@ -37,8 +38,11 @@ router.get('/:user_id', async function(req, res,) { // id is user_id
   router.delete("/:id", async (req, res) => {
     let noteId = req.params.id;
   
+    // It knows that the id is the note id, also because you are calling delete function
+    // it looks here and passes the note id NOT the user id
+    // Reference to NoteList
     try {
-        let result = await db(`SELECT * FROM notes WHERE id = ${noteId}`);  
+        let result = await db(`SELECT * FROM notes WHERE id = ${noteId}`); // WHERE id refers to the notes id
         if (result.data.length === 0) {
             res.status(404).send({ error: 'Data not found' });
         } else {

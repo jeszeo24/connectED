@@ -1,14 +1,21 @@
 
 # connectED
 
-Hello! Welcome to my app
+Hello! Welcome to Kejal's connectED app. 
+
+As part of the (CodeOp) Feature Extension project phase, I (Jess) have forked and cloned her app to work on a chat feature and an authentication feature. The notes route and front-end was also rejigged, so that each individual student has their own individual view of notes.
+
+From Kejal's two original tables of reflection and note, the users table was created to keep track of users (students vs staff) and user information. The second table added is the messages table, to store chat messages from the chat function. 
 
 Databases and Tables:
 - The name of the database: student_reflection
-- This app has two tables: reflection and notes. 
-- Reflection: contains the refDate,  studentid and 6 questions (questions are seen in the ReflectionView)
-- notes: contains the noteDate, title and note (added through the form in NoteView)
+- This app now has four tables: users, messages, reflection and notes. 
+    - users: contains the username, password, isStaff (boolean) and email
+    - messages: contains senderId, groupId, text and dateTime
+    - reflection: contains the refDate,  studentid and 6 questions (questions are seen in the ReflectionView)
+    - notes: contains the noteDate, title and note (added through the form in NoteView)
 
+Please note that the notes table now also has a foreign key (user_id) so as to map each individual student/user to their own individual notes view.
 
 ## Install the app
 There are four branches of the code(use `git branch` to see the branches):

@@ -7,7 +7,7 @@ function NoteList(props) {
          <ul className='note-lay'>
         { props.note1.map(n => (
             <li className='note-list'
-                key={n.id}>
+                key={n.id}> 
                     <button className='delete' onClick={(e) => props.deleteNote1(n.id)} title="delete" type="button">x</button>
                     {n.title} <br></br>
                     {n.note} <br></br>
