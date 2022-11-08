@@ -223,7 +223,7 @@ function App() {
             element={
               <ChatView
                 senderId={Number(Local.getUserId())}
-                groupId={1}
+                groupId={Number(Local.getisStaff())}
                 user={user}
                 users={users}
               />

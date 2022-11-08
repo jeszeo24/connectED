@@ -25,7 +25,7 @@ function NavBar(props) {
                         {
                             props.user && (
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/users">Users</NavLink>
+                                    <NavLink className="nav-link" to="/users" end>Users</NavLink>
                                 </li>
                             )
                         }
@@ -40,7 +40,7 @@ function NavBar(props) {
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
                                         {/* props.user passed from parent App */}
-                                        <NavLink className="nav-link" to={`/users/${props.user.id}`}>Profile ({props.user.username})</NavLink> 
+                                        <NavLink className="nav-link" to={`/users/${props.user.id}`} end>Profile ({props.user.username})</NavLink> 
                                     </li>
                                     <li className="nav-item">
                                         {/* Log out user. Then go to home page. */}

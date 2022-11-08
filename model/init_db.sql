@@ -24,6 +24,7 @@ CREATE TABLE notes (
  noteDate DATE,
  title MEDIUMTEXT,
  note LONGTEXT
+--  FOREIGN KEY (user_id) REFERENCES users(id) on DELETE CASCADE
  );
 
 INSERT INTO notes (noteDate, title, note)

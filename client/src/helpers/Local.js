@@ -44,6 +44,16 @@ class Local {
         return user.username; // username as defined in users table
     }
 
+    static getisStaff() {
+        let userjson = localStorage.getItem("user");
+        if (!userjson) {
+            return "";
+        }
+
+        let user = JSON.parse(userjson);
+        return user.isStaff; // isStaff as defined in users table
+    }
+
 }
 
 export default Local;
