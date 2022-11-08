@@ -100,6 +100,13 @@ class Api {
   static async addNote(note) {
       return await this._doFetch("/note", "POST", note)
   }
+  // QUESTION: How does it know what properties are in the body/note?
+
+  // NOTE: Alternatively the below:
+//   static async addNote(noteDate, title, note, user_id) {
+//       let body = { noteDate, title, note, user_id }
+//     return await this._doFetch("/note", "POST", body)
+// }
 
 }
 

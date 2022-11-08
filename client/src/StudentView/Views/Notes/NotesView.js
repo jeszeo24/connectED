@@ -32,15 +32,21 @@ import Local from "../../../helpers/Local"
     async function addNote(note) {
 
       // NOTE: CREATED fetch in API instead
-
+      
       // let options = {
       //     method: 'POST',
       //     headers: { 'Content-Type': 'application/json' },
       //     body: JSON.stringify(note)
       // };
 
+      // NOTE: From Api fetch functions, there is addNote(note) which does the POST as above
+      let id = Local.getUserId();
+      note.user_id = id; // this updates the user_id within note object
+      console.log(note);
+
       try {
           // let response = await fetch('/note', options);
+          // NOTE: The POST function with the noteDate, title, note, user_id object 
           let response = await Api.addNote(note);
           console.log(response);
           if (response.ok) {

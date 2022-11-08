@@ -18,7 +18,7 @@ router.get('/:user_id', async function(req, res,) { // id is user_id
   
   router.post("/", async (req, res) => {
     let { noteDate, title, note, user_id  } = req.body;
-    console.log(req.body);
+    
     let sql = `
         INSERT INTO notes (noteDate, title, note, user_id)
         VALUES ('${noteDate}', '${title}', '${note}', ${Number(user_id)})
