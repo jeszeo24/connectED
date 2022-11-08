@@ -27,7 +27,7 @@ input{
     background-color: rgba(255, 255, 255, 0.735);
     font-family: "Baloo 2", cursive;
     font-weight: lighter;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 textarea:focus{
@@ -48,7 +48,7 @@ textarea:focus{
     text-align: center;
     font-family: "Baloo 2", cursive;
     font-weight: 700;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 .date{
