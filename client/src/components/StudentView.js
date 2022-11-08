@@ -9,7 +9,7 @@ import ReflectionView from '../StudentView/Views/Reflection/ReflectionView'
 import ResourcesView from '../StudentView/Views/Resources/ResourcesView'
 import WeatherView from '../StudentView/Weather/WeatherView'
 import NewsView from '../StudentView/News/NewsView'
-import ChatView from "../views/ChatView"
+// import ChatView from "../views/ChatView"
 
 function StudentView(props) {
   
